@@ -32,7 +32,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users'], fun
 
 Route::group(['prefix' => 'courses', 'middleware' => 'auth', 'as' => 'courses'], function () {
     Route::get('edit/{course}', 'CourseController@edit')->name('.edit');
-    Route::get('create', 'CourseController@create')->name('.create');
+    Route::get('create/{course}', 'CourseController@create')->name('.create');
     Route::post('store', 'CourseController@store')->name('.store');
     Route::post('update/{course}', 'CourseController@update')->name('.update');
     Route::get('destroy/{course}', 'CourseController@destroy')->name('.destroy');
