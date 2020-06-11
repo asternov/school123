@@ -5,24 +5,40 @@
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
 Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Home', route('home'));
+    $trail->push('Главная страница', route('/'));
 });
 
-
-// Home > Courses
 Breadcrumbs::for('courses', function ($trail) {
     $trail->parent('home');
     $trail->push('Курсы', route('courses'));
 });
 
-// Home > Blog > [Category]
 Breadcrumbs::for('course', function ($trail, $course) {
     $trail->parent('courses');
-    $trail->push($course->name, route('courses.show', ['course' => $course]));
+    $trail->push($course->name, route('courses.show', $course));
 });
 
-// Home > Blog > [Category] > [Post]
 Breadcrumbs::for('lesson', function ($trail, $lesson) {
     $trail->parent('course', $lesson->course);
-    $trail->push($lesson->name, route('lessons.show', ['lesson' => $lesson->id]));
+    $trail->push($lesson->name, route('lessons.show', $lesson));
+});
+
+Breadcrumbs::for('users', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Пользователи', route('users'));
+});
+
+Breadcrumbs::for('user', function ($trail, $user) {
+    $trail->parent('users');
+    $trail->push($user->name, route('users'));
+});
+
+Breadcrumbs::for('users.edit', function ($trail, $user) {
+    $trail->parent('user', $user);
+    $trail->push('редактирование', route('users', $user));
+});
+
+Breadcrumbs::for('users.create', function ($trail) {
+    $trail->parent('users');
+    $trail->push('Создание', route('users'));
 });

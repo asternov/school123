@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+    {{ Breadcrumbs::render('users') }}
     <div class="input-group hidden flex mb-4 px-2">
         <form method="get"  class="ml-auto mr-auto">
             <input class="form-control shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="search"

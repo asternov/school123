@@ -1,6 +1,13 @@
 @extends('layouts.default')
 
 @section('content')
+
+    @if ($create)
+        {{ Breadcrumbs::render('users.create') }}
+    @else
+        {{ Breadcrumbs::render('users.edit', $user) }}
+    @endif
+
     <div class=" flex justify-center h-screen pt-4" id="vue">
         {{ Form::model($user, ['route' => $route, 'method' => 'post']) }}
         {{ Form::label('name', 'Имя', ['class' => 'text-3xl lg:text-xl block text-gray-700 font-bold mb-2'])}}
@@ -12,10 +19,9 @@
         {{ Form::password('password', ['class' => ($create ? '' : '') . ' pswd-fld shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-4 leading-tight focus:outline-none focus:shadow-outline', 'v-if'=>'isHidden']) }}
        {{ Form::label('is_admin', 'Админ', ['class' => 'text-3xl block lg:text-xl text-gray-700 font-bold mb-2']) }}
         {{ Form::checkbox('is_admin', ($user->is_admin ? true : null)) }}
-        {{ Form::submit(($create ? 'Создать' : 'Обновить'), ['class' => 'text-3xl lg:text-xl block px-4 btn']) }}
 
         <div class="flex justify-center m-2">
-            {{ Form::submit('Зарегистрироваться', ['class' => 'btn']) }}
+            {{ Form::submit(($create ? 'Создать' : 'Обновить'), ['class' => 'btn']) }}
         </div>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -30,12 +36,15 @@
         {{ Form::close() }}
     </div>
     <script>
-        new Vue({
-            el: '#vue',
-            data: {
-                name: 'Vue.js',
-                isHidden: <?php echo ($create ? 1 : 0)?>
-            },
-        })
+
+        window.addEventListener("load", function() {
+            new Vue({
+                el: '#vue',
+                data: {
+                    name: 'Vue.js',
+                    isHidden: <?php echo($create ? 1 : 0)?>
+                },
+            })
+        });
     </script>
 @endsection

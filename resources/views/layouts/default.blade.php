@@ -24,7 +24,7 @@
         </div>
         <div class="smmax:hidden w-full block  justify-between sm:flex items-center" id="collapsable">
             <div class="smmax:inline-block">
-                <a href="/mmb/home" class="text-2xl text-white">MMB</a>
+                <a href="{{ route('/') }}" class="text-2xl text-white">MMB</a>
             </div>
 
             @if (Auth::check())
