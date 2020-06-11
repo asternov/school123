@@ -1,0 +1,128 @@
+/* purgecss start ignore */
+.primary {
+    background: #7957d5;
+}
+.background-color {
+    background: #f4f5f5;
+}
+
+.header-color {
+    background: #7957d5;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.notification {
+    padding: 10px;
+    font-size: 12px;
+    color: #ffffff;
+    background: #44A4FC;
+    border-left: 5px solid #187FE7;
+
+    &.warn {
+        background: #ffb648;
+        border-left-color: #f48a06;
+    }
+
+    &.error {
+        background: #E54D42;
+        border-left-color: #B82E24;
+    }
+
+    &.success {
+        background: #68CD86;
+        border-left-color: #42A85F;
+    }
+}
+
+span.text-white .v-time-ago__text {
+    color: white;
+}
+span.text-black .v-time-ago__text {
+    color: black;
+}
+
+.list-group-item:hover span{
+    @apply bg-gray-200 rounded;
+}
+
+.input {
+    @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight w-64;
+}
+
+.panel {
+    @apply shadow-xl rounded-lg bg-white border-2 m-2;
+}
+
+.panel-header {
+    @apply text-center bg-gray-300 py-2 rounded font-bold;
+}
+
+.href {
+    @apply text-blue-500;
+}
+
+.href:hover {
+    @apply text-blue-700;
+}
+
+.primary .href {
+    @apply text-blue-300;
+}
+
+.primary .href:hover {
+    @apply text-blue-500;
+}
+
+.btn {
+    @apply bg-transparent text-black font-semibold py-1 px-1 border border-black rounded m-1;
+}
+
+.btn:hover {
+    @apply primary text-white;
+}
+
+.btn-white {
+    @apply bg-transparent text-white font-semibold py-1 px-1 border border-white rounded m-1;
+}
+
+.btn-white:hover {
+    @apply primary text-black bg-white;
+}
+
+@screen md {
+    .btn {
+        @apply py-2 px-3;
+    }
+    .btn-white {
+        @apply py-2 px-3;
+    }
+}
+
+.dropdown-element {
+    @apply bg-gray-200 py-2 px-4 block whitespace-no-wrap;
+}
+
+.dropdown-element:hover {
+    @apply bg-gray-400;
+}
+
+.label {
+    @apply text-xl block text-gray-700 font-bold mb-2;
+}
+
+.label-inline {
+    @apply text-xl inline-block text-gray-700 font-bold mb-2;
+}
+
+.table {
+    @apply rounded border-2 bg-white shadow;
+}
+
+.table thead {
+    @apply rounded border-2 bg-gray-200;
+}
+
+/* purgecss end ignore */
