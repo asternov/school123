@@ -54,7 +54,7 @@ class LessonController extends Controller
         return redirect('courses/' . $model->course_id);
     }
 
-    public function update(Request $request, Lesson $Lesson)
+    public function update(Request $request, Lesson $lesson)
     {
         $validatedData = $request->validate([
             'name' => 'required',
@@ -62,18 +62,19 @@ class LessonController extends Controller
             'content' => '',
         ]);
 
-        $Lesson->setAttribute('name',  $validatedData['name']);
-        $Lesson->setAttribute('description',  $validatedData['description']);
-        $Lesson->setAttribute('content',  $validatedData['content']);
-        $Lesson->save();
+        $lesson->setAttribute('name',  $validatedData['name']);
+        $lesson->setAttribute('description',  $validatedData['description']);
+        $lesson->setAttribute('content',  $validatedData['content']);
+        $lesson->save();
 
-        return redirect('courses/' . $Lesson->course->id);
+        return redirect('courses/' . $lesson->course->id);
     }
 
     public function destroy(Lesson $lesson)
     {
+        $course_id = $lesson->course->id;
         $lesson->delete();
 
-        return redirect('lessons');
+        return redirect('courses/' . $course_id);
     }
 }
