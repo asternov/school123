@@ -21,6 +21,6 @@
     @endforeach
     </div>
     <div class="flex">
-        <a  class="ml-auto mr-auto btn" href="{{route('lessons.create', ['course_id' => $course->id])}}">Создать урок</a>
+        <a  class="ml-auto mr-auto btn" href="{{route('lessons.create', ['course' => $course])}}">Создать урок</a>
     </div>
 @endsection
