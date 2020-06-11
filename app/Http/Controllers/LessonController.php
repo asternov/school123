@@ -24,7 +24,7 @@ class LessonController extends Controller
         $model = new Lesson;
         $route = ['lessons.store'];
         $create = true;
-        return view('Lesson.create_edit')->with(compact('model', 'route', 'create', 'course'));
+        return view('lesson.create_edit')->with(compact('model', 'route', 'create', 'course'));
     }
 
     public function edit(Request $request, Lesson $lesson)
@@ -32,7 +32,7 @@ class LessonController extends Controller
         $model = $lesson;
         $route = ['lessons.update', $lesson->id];
         $create = false;
-        return view('Lesson.create_edit')->with(compact('model', 'route', 'create'), ['user'=> Auth::user()]);
+        return view('lesson.create_edit')->with(compact('model', 'route', 'create'), ['user'=> Auth::user()]);
     }
 
     public function store(Request $request)
