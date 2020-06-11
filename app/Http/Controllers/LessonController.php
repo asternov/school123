@@ -70,9 +70,9 @@ class LessonController extends Controller
         return redirect('courses/' . $Lesson->course->id);
     }
 
-    public function destroy(Lesson $Lesson)
+    public function destroy(Lesson $lesson)
     {
-        $Lesson->delete();
+        $lesson->delete();
 
         return redirect('lessons');
     }
