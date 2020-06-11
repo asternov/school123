@@ -15,12 +15,12 @@
                 </div>
             </div>
             <div class="p-2">
-                {!!   $model->content !!}
+                {!!   $model->description !!}
             </div>
         </div>
     @endforeach
     </div>
     <div class="flex">
-        <a  class="ml-auto mr-auto btn" href="{{route('lessons.create', ['course' => $course])}}">Создать урок</a>
+        <a  class="ml-auto mr-auto btn" href="{{route('lessons.create', ['course' => $model])}}">Создать урок</a>
     </div>
 @endsection
