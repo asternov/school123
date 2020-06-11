@@ -10,13 +10,13 @@
     <div class="flex justify-center h-screen pt-4">
         {{ Form::open(['route' => 'register']) }}
         {{ Form::label('name', 'Имя', ['class' => 'label']) }}
-        {{ Form::text('name', 'Andrew', ['class' => 'input']) }}
+        {{ Form::text('name', null, ['class' => 'input']) }}
         {{ Form::label('email', 'E-Mail адрес', ['class' => 'label']) }}
-        {{ Form::email('email', 'asd@asd213.asd', ['class' => 'input']) }}
+        {{ Form::email('email', null, ['class' => 'input']) }}
         {{ Form::label('password', 'Пароль', ['class' => 'label']) }}
-        {{ Form::input('password', 'password', 'kba333ap', ['class' =>'input']) }}
+        {{ Form::input('password', 'password', null, ['class' =>'input']) }}
         {{ Form::label('password_confirmation', 'Пароль еще раз', ['class' => 'label']) }}
-        {{ Form::input('password', 'password_confirmation',  'kba333ap', ['class' => 'input']) }}
+        {{ Form::input('password', 'password_confirmation',  null, ['class' => 'input']) }}
         <div class="flex justify-center m-2">
         {{ Form::submit('Зарегистрироваться', ['class' => 'btn']) }}
         </div>
