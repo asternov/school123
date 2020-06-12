@@ -38,7 +38,7 @@ class CourseController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'description' => '',
         ]);
 
         $model = new Course;
@@ -53,7 +53,7 @@ class CourseController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'description' => '',
         ]);
 
         $course->setAttribute('name',  $validatedData['name']);
