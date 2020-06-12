@@ -4,17 +4,17 @@
     {{ Breadcrumbs::render('course', $course) }}
 <div class=" m-2">
     @foreach($course->lessons as $model)
-        <div class="panel w-2/3 block mx-auto my-2">
+        <div class="panel">
             <div class="panel-header flex">
-                <div class="w-full m-2">
+                <div class="w-full m-1">
                     <a class="href ml-32" href="{{ route('lessons.show', ['lesson' => $model]) }}">{{ $model->name }}</a>
                 </div>
-                <div class="w-32 m-2">
+                <div class="w-32 m-1">
                     <a class="btn" href="{{route('lessons.edit', ['lesson' => $model])}}"><i class="fa fa-edit" aria-hidden="true"></i></a>
                     <a class="btn" href="{{route('lessons.destroy', ['lesson' => $model])}}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <div class="p-2">
+            <div class="p-3">
                 {!!   $model->description !!}
             </div>
         </div>
