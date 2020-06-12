@@ -52,9 +52,6 @@ span.text-black .v-time-ago__text {
     @apply shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight w-64;
 }
 
-.panel {
-    @apply shadow-xl rounded-lg bg-white border-2 m-2;
-}
 
 .panel-header {
     @apply text-center bg-gray-300 py-2 rounded font-bold;
@@ -92,6 +89,11 @@ span.text-black .v-time-ago__text {
     @apply primary text-black bg-white;
 }
 
+
+.panel {
+    @apply shadow-xl rounded-lg bg-white border-2 mx-2 w-full block mx-auto my-3;
+}
+
 @screen md {
     .btn {
         @apply py-2 px-3;
@@ -99,7 +101,11 @@ span.text-black .v-time-ago__text {
     .btn-white {
         @apply py-2 px-3;
     }
+    .panel {
+        @apply w-9/12;
+    }
 }
+
 
 .dropdown-element {
     @apply bg-gray-200 py-2 px-4 block whitespace-no-wrap;

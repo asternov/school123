@@ -4,7 +4,7 @@
     {{ Breadcrumbs::render('courses') }}
 <div class="m-2">
     @foreach($models as $model)
-        <div class="panel w-2/3 block mx-auto my-2">
+        <div class="panel">
             <div class="panel-header flex">
                 <div class="w-full m-2">
                 <a class="href ml-32" href="{{ route('courses.show', ['course' => $model]) }}">{{ $model->name }}</a>
