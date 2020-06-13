@@ -7,7 +7,7 @@
         {{ Breadcrumbs::render('lesson', $model) }}
         @endif
 
-    <div class=" flex justify-center h-screen pt-4" id="vue">
+    <div class=" sm:flex sm:justify-center h-screen p-2 pt-4" id="vue">
         {{ Form::model($model, ['route' => $route, 'method' => 'post']) }}
         {{ Form::text('course_id', (isset($course) ? $course->id : $model->course->id), ['class' => 'hidden']) }}
         {{ Form::label('name', 'Название', ['class' => 'label'])}}

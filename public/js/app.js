@@ -37955,8 +37955,8 @@ var render = function() {
        bullist numlist outdent indent | removeformat | help",
             mobile: {
               menubar: true,
-              plugins: ["autosave", "lists", "autolink"],
-              toolbar: ["undo bold italic", "styleselect"]
+              plugins: ["autosave image media", "lists", "autolink"],
+              toolbar: ["undo styleselect"]
             }
           }
         },
