@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-<!--        <ckeditor :editor="editor" v-model="usernameInput" :config="editorConfig"></ckeditor>-->
+        <!--        <ckeditor :editor="editor" v-model="usernameInput" :config="editorConfig"></ckeditor>-->
         <editor
             api-key="20nhax22w3loedproz3lxs017q5lv4hgkgwtwfjh979edysf"
             v-model="usernameInput"
@@ -14,10 +14,15 @@
          toolbar:
            'undo redo | formatselect | bold italic backcolor | \
            alignleft aligncenter alignright alignjustify | \
-           bullist numlist outdent indent | removeformat | help'
+           bullist numlist outdent indent | removeformat | help',
+           mobile: {
+                menubar: true,
+                plugins: [ 'autosave', 'lists', 'autolink' ],
+                toolbar: [ 'undo', 'bold', 'italic', 'styleselect' ]
+            }
        }"
         />
-     </div>
+    </div>
 </template>
 
 <script>
@@ -37,15 +42,15 @@
                 }
             };
         },
-    computed: {
-        usernameInput: {
-            get: function(){
-                return this.editorData;
+        computed: {
+            usernameInput: {
+                get: function () {
+                    return this.editorData;
+                },
+                set: function (newValue) {
+                    this.$emit('update', newValue)
+                }
             },
-            set: function(newValue){
-                this.$emit('update', newValue)
-            }
-        },
-    }
+        }
     }
 </script>

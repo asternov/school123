@@ -2359,6 +2359,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'app',
@@ -37946,8 +37951,13 @@ var render = function() {
             ],
             toolbar:
               "undo redo | formatselect | bold italic backcolor | \
-           alignleft aligncenter alignright alignjustify | \
-           bullist numlist outdent indent | removeformat | help"
+       alignleft aligncenter alignright alignjustify | \
+       bullist numlist outdent indent | removeformat | help",
+            mobile: {
+              menubar: true,
+              plugins: ["autosave", "lists", "autolink"],
+              toolbar: ["undo", "bold", "italic", "styleselect"]
+            }
           }
         },
         model: {
