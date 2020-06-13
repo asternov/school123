@@ -37956,7 +37956,7 @@ var render = function() {
             mobile: {
               menubar: true,
               plugins: ["autosave", "lists", "autolink"],
-              toolbar: ["undo", "bold", "italic", "styleselect"]
+              toolbar: ["undo bold italic", "styleselect"]
             }
           }
         },
