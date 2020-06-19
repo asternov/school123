@@ -19,13 +19,14 @@
                 </div>
             </div>
             <div class="p-3" >
-                {!! preg_replace('~(?:https?://)?(?:www.)?(?:youtube.com|youtu.be)/(?:watch\?v=)?([^\s]+)~', "<youtube v-bind:id=\"'$1'\"></youtube>", str_replace('</p>', ' </p>', $lesson->content)) !!}
+                {!! preg_replace('~(?:https?://)?(?:www.)?(?:youtube.com|youtu.be)/(?:watch\?v=)?([^\s^<]+)~', "<youtube v-bind:id=\"'$1'\"></youtube>", $lesson->content) !!}
             </div>
         </div>
     </div>
 
 
     <script>
+        //str_replace('</p>', ' </p>',
         //v-html="content.replace(youtubeRegExp, youtubePlugin)"
         window.addEventListener("load", function(){
             var app = new Vue({
