@@ -1,23 +1,22 @@
 <template>
     <div id="app">
-        <!--        <ckeditor :editor="editor" v-model="usernameInput" :config="editorConfig"></ckeditor>-->
         <editor
             api-key="20nhax22w3loedproz3lxs017q5lv4hgkgwtwfjh979edysf"
             v-model="usernameInput"
             :init="{
          height: 500,
          plugins: [
-           'advlist autolink lists link image charmap print preview anchor',
+           'advlist lists link image charmap print preview anchor',
            'searchreplace visualblocks code fullscreen',
-           'insertdatetime media table paste code help wordcount'
+           'insertdatetime media table paste code help wordcount '
          ],
          toolbar:
            'undo redo | formatselect | bold italic backcolor | \
            alignleft aligncenter alignright alignjustify | \
-           bullist numlist outdent indent | removeformat | help',
+           bullist numlist outdent indent  | removeformat | help',
            mobile: {
                 menubar: true,
-                plugins: [ 'autosave image media', 'lists', 'autolink' ],
+                plugins: [ 'autosave image media', 'lists', ],
                 toolbar: [ 'undo styleselect' ]
             }
        }"

@@ -16,7 +16,7 @@
         {{ Form::text('description', null, ['class' => 'input']) }}
         {{ Form::label('content', 'содержание', ['class' => 'label'])}}
         <input :value="content" name="content" class="hidden">
-        <example-component v-bind:editor-data="content" v-on:update="content = $event"></example-component>
+        <tinymce v-bind:editor-data="content" v-on:update="content = $event"></tinymce>
         <br>
         {{ Form::label('is_public', 'Опубликован', ['class' => 'label inline-block']) }}
         {{ Form::checkbox('is_public', ($model->is_public ? $model->is_public : true)) }}

@@ -7,9 +7,8 @@
 require('./bootstrap');
 import Vue from 'vue';
 import QuickEdit from 'vue-quick-edit';
-import CKEditor from '@ckeditor/ckeditor5-vue';
-import ExampleComponent from './components/ExampleComponent.vue';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import tinymce from './components/tinymce.vue';
+import youtube from './components/youtube.vue';
 window.Vue = require('vue');
 
 /**
@@ -23,10 +22,10 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', ExampleComponent);
+Vue.component('tinymce', tinymce);
+Vue.component('youtube', youtube);
 
 Vue.component('quick-edit', QuickEdit);
-Vue.use( CKEditor );
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

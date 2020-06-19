@@ -19,6 +19,9 @@ Route::get('', 'CourseController@index')->name('/');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/vjs', function() {
+    return view('vjs');
+})->name('vjs');
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users'], function () {
     Route::get('edit/{id}', 'UserController@edit')->name('.edit');
