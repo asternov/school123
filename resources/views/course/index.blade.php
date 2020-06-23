@@ -12,7 +12,7 @@
                         <a class="href <?= isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'] ? 'ml-32' : ''?>"
                            href="{{ route('courses.show', ['course' => $model]) }}">{{ $model->name }}</a>
                     </div>
-                    @if ($_COOKIE['is_admin']) && $_COOKIE['is_admin'])
+                    @if (isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'])
                         <div class="w-32 m-1">
                             <a class="btn" href="{{route('courses.edit', ['course' => $model])}}">
                                 <i class="fa fa-edit" aria-hidden="true"></i></a>

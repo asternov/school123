@@ -12,7 +12,7 @@
             {{ $lesson->name }}
         </div>
         <div class="panel">
-            @if ($_COOKIE['is_admin'])
+            @if (isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'])
                 <div class="panel-header flex justify-end">
                     <div class="w-32 m-1">
                         <a class="btn" href="{{route('lessons.edit', ['lesson' => $lesson])}}">
