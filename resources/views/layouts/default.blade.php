@@ -41,7 +41,7 @@
                 <div class="flex smmax:pt-3">
                     @if(Auth::user()->is_admin)
                     <label class="label inline-block m-2 text-black"> Админ
-                        <input <?= $_COOKIE['is_admin'] ? 'checked' : ''?> @click="admin" type="checkbox">
+                        <input <?= $_COOKIE['is_admin']) && $_COOKIE['is_admin'] ? 'checked' : ''?> @click="admin" type="checkbox">
                     </label>
                     @endif
                     <form method="POST" action="{{ route('logout') }}">

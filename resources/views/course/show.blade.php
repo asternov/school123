@@ -9,11 +9,11 @@
             <div class="panel">
                 <div class="panel-header flex">
                     <div class="w-full m-1">
-                        <a class="href <?= $_COOKIE['is_admin'] ? 'ml-32' : ''?>"
+                        <a class="href <?= $_COOKIE['is_admin']) && $_COOKIE['is_admin'] ? 'ml-32' : ''?>"
                            href="{{ route('lessons.show', ['lesson' => $model]) }}">{{ $model->name }}</a>
                     </div>
 
-                    @if ($_COOKIE['is_admin'])
+                    @if ($_COOKIE['is_admin']) && $_COOKIE['is_admin'])
                         <div class="w-32 m-1">
                             <a class="btn" href="{{route('lessons.edit', ['lesson' => $model])}}"><i class="fa fa-edit"
                                                                                                      aria-hidden="true"></i></a>
