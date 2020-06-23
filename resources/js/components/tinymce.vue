@@ -2,7 +2,7 @@
     <div id="app">
         <editor
             api-key="20nhax22w3loedproz3lxs017q5lv4hgkgwtwfjh979edysf"
-            v-model="usernameInput"
+            v-model="userInput"
             :init="{
          height: 500,
          plugins: [
@@ -35,14 +35,10 @@
         props: ['editorData'],
         data() {
             return {
-                //editorData: this.edirotData,
-                editorConfig: {
-                    // The configuration of the editor.
-                }
             };
         },
         computed: {
-            usernameInput: {
+            userInput: {
                 get: function () {
                     return this.editorData;
                 },

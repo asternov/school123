@@ -10,10 +10,17 @@
         <br>
         {{ Form::label('is_public', 'Опубликован', ['class' => 'label inline-block']) }}
         {{ Form::checkbox('is_public', ($model->is_public ? $model->is_public : true)) }}
-        <div class="flex justify-center m-2">
-        {{ Form::submit(($create ? 'Создать' : 'Обновить'), ['class' => 'text-3xl lg:text-xl block px-4 btn']) }}
-        </div>
 
+        {{ Form::label('', 'Список участников:', ['class' => 'label']) }}
+        @foreach(\App\User::all() as $user)
+            <label class="label inline-block mx-2"> {{ $user->name }}
+                {{ Form::checkbox('users[]', $user->id, $model->users->contains($user))}}
+            </label>
+        @endforeach
+
+        <div class="flex justify-center m-2">
+            {{ Form::submit(($create ? 'Создать' : 'Обновить'), ['class' => 'text-3xl lg:text-xl block px-4 btn']) }}
+        </div>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -23,7 +30,6 @@
                 </ul>
             </div>
         @endif
-
         {{ Form::close() }}
     </div>
 @endsection

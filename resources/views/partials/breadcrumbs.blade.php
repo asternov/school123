@@ -1,5 +1,5 @@
 @if (count($breadcrumbs))
-    <nav class="text-black font-bold my-4 ml-4" aria-label="Breadcrumb">
+    <nav class="text-black font-bold mt-4 ml-4" aria-label="Breadcrumb">
         <ol class="list-none p-0 inline-flex">
             @foreach ($breadcrumbs as $breadcrumb)
                 @if ($loop->last)

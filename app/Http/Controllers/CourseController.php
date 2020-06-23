@@ -39,12 +39,14 @@ class CourseController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => '',
+            'users' => '',
         ]);
 
-        $model = new Course;
-        $model->setAttribute('name',  $validatedData['name']);
-        $model->setAttribute('description',  $validatedData['description']);
-        $model->save();
+        $course = new Course;
+        $course->name = $validatedData['name'];
+        $course->description = $validatedData['description'];
+        $course->users()->attach($validatedData['users']);
+        $course->save();
 
         return redirect('courses');
     }
@@ -54,11 +56,14 @@ class CourseController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => '',
+            'users' => '',
         ]);
 
-        $course->setAttribute('name',  $validatedData['name']);
-        $course->setAttribute('description',  $validatedData['description']);
+        $course->name = $validatedData['name'];
+        $course->description = $validatedData['description'];
         $course->save();
+        $course->users()->detach();
+        $course->users()->attach($validatedData['users']);
 
         return redirect('courses');
     }

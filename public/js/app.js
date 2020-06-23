@@ -2355,14 +2355,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: ['editorData'],
   data: function data() {
-    return {
-      //editorData: this.edirotData,
-      editorConfig: {// The configuration of the editor.
-      }
-    };
+    return {};
   },
   computed: {
-    usernameInput: {
+    userInput: {
       get: function get() {
         return this.editorData;
       },
@@ -37972,11 +37968,11 @@ var render = function() {
           }
         },
         model: {
-          value: _vm.usernameInput,
+          value: _vm.userInput,
           callback: function($$v) {
-            _vm.usernameInput = $$v
+            _vm.userInput = $$v
           },
-          expression: "usernameInput"
+          expression: "userInput"
         }
       })
     ],
@@ -38006,38 +38002,24 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "app" } }, [
-    _c(
-      "div",
-      {
-        staticClass: "yt-cover",
+    _c("div", { staticClass: "border overflow-hidden m-4" }, [
+      _c("iframe", {
         staticStyle: {
-          border: "1px solid #ffffff",
-          overflow: "hidden",
-          height: "800px",
-          margin: "50px auto",
-          "max-width": "600px"
+          border: "0px none",
+          "margin-left": "0px",
+          height: "500px",
+          "margin-top": "-60px",
+          width: "100%"
         },
-        attrs: { oncontextmenu: "return false;" }
-      },
-      [
-        _c("iframe", {
-          staticStyle: {
-            border: "0px none",
-            "margin-left": "0px",
-            height: "500px",
-            "margin-top": "-60px",
-            width: "100%"
-          },
-          attrs: {
-            src:
-              "https://www.youtube.com/embed/" +
-              _vm.id +
-              "?autoplay=0&enablejsapi=1&rel=0;modestbranding=1&showsearch=0",
-            scrolling: "yes"
-          }
-        })
-      ]
-    )
+        attrs: {
+          src:
+            "https://www.youtube.com/embed/" +
+            _vm.id +
+            "?autoplay=0&enablejsapi=1&rel=0;modestbranding=1&showsearch=0",
+          scrolling: "yes"
+        }
+      })
+    ])
   ])
 }
 var staticRenderFns = []

@@ -3899,9 +3899,9 @@ video {
   width: 100%;
 }
 
-@media (min-width: 640px){
+@media (min-width: 639px){
   .container{
-    max-width: 640px;
+    max-width: 639px;
   }
 }
 
@@ -10874,7 +10874,7 @@ video {
 }
 
 .max-w-screen-sm{
-  max-width: 640px;
+  max-width: 639px;
 }
 
 .max-w-screen-md{
@@ -21182,7 +21182,7 @@ video {
   transition-delay: 1000ms;
 }
 
-@media (min-width: 640px){
+@media (min-width: 639px){
   .sm\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -28134,7 +28134,7 @@ video {
   }
 
   .sm\:max-w-screen-sm{
-    max-width: 640px;
+    max-width: 639px;
   }
 
   .sm\:max-w-screen-md{
@@ -45395,7 +45395,7 @@ video {
   }
 
   .md\:max-w-screen-sm{
-    max-width: 640px;
+    max-width: 639px;
   }
 
   .md\:max-w-screen-md{
@@ -62656,7 +62656,7 @@ video {
   }
 
   .lg\:max-w-screen-sm{
-    max-width: 640px;
+    max-width: 639px;
   }
 
   .lg\:max-w-screen-md{
@@ -79917,7 +79917,7 @@ video {
   }
 
   .xl\:max-w-screen-sm{
-    max-width: 640px;
+    max-width: 639px;
   }
 
   .xl\:max-w-screen-md{
@@ -90226,7 +90226,7 @@ video {
   }
 }
 
-@media (max-width: 640px){
+@media (max-width: 641px){
   .smmax\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -97178,7 +97178,7 @@ video {
   }
 
   .smmax\:max-w-screen-sm{
-    max-width: 640px;
+    max-width: 639px;
   }
 
   .smmax\:max-w-screen-md{

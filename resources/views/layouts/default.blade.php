@@ -10,9 +10,9 @@
 </head>
 
 <body class="background-color">
-<div id="app" class="h-full min-h-screen background-color">
+<div class="h-full min-h-screen background-color">
 
-    <nav class="flex items-center justify-between flex-wrap blue p-4 header-color">
+    <nav id="header" class="flex items-center justify-between flex-wrap blue p-4 header-color">
         <div class="block sm:hidden">
             <button onclick="document.getElementById('collapsable').classList.toggle('smmax:hidden')"
                     class="btn-white">
@@ -28,18 +28,22 @@
             </div>
 
             @if (Auth::check())
-            <div class="text-sm smmax:pt-1 smmax:inline-block">
-                <a href="{{ route('courses') }}" class="btn-white">
-                    Курсы
-                </a>
-                <a href="{{ route('users') }}" class="btn-white mx-2">
-                    Пользователи
-                </a>
-            </div>
+                <div class="text-sm smmax:pt-1 smmax:inline-block">
+                    <a href="{{ route('courses') }}" class="btn-white">
+                        Курсы
+                    </a>
+                    <a href="{{ route('users') }}" class="btn-white mx-2">
+                        Пользователи
+                    </a>
+                </div>
             @endif
             @if (Auth::check())
-
                 <div class="flex smmax:pt-3">
+                    @if(Auth::user()->is_admin)
+                    <label class="label inline-block m-2 text-black"> Админ
+                        <input <?= $_COOKIE['is_admin'] ? 'checked' : ''?> @click="admin" type="checkbox">
+                    </label>
+                    @endif
                     <form method="POST" action="{{ route('logout') }}">
                         {!! csrf_field() !!}
                         <button type="submit" class="btn-white">
@@ -70,3 +74,42 @@
 <notifications group="foo" :classes="'mt-2 mr-2 notification'"/>
 </body>
 </html>
+
+<script>
+    window.addEventListener("load", function () {
+        window.headerApp = new Vue({
+            el: '#header',
+            data() {
+                return {
+                };
+            },
+            methods: {
+                setCookie(name, value, days) {
+                    var expires = "";
+                    if (days) {
+                        var date = new Date();
+                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                    }
+                    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                },
+                getCookie(name) {
+                    var nameEQ = name + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                },
+                admin() {
+                    this.setCookie('is_admin', !this.getCookie('is_admin'), 30)
+                    window.location.reload(true);
+                }
+            },
+            mounted() {
+            }
+        });
+    });
+</script>
