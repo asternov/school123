@@ -27,7 +27,7 @@
             </div>
         @endforeach
 
-    @if ($_COOKIE['is_admin'])
+    @if (isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'])
         <div class="flex">
             <a class="ml-auto mr-auto btn" href="{{route('courses.create')}}">Создать курс</a>
         </div>
