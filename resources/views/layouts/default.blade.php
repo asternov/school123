@@ -28,20 +28,22 @@
             </div>
 
             @if (Auth::check())
-                <div class="text-sm smmax:pt-1 smmax:inline-block">
+                <div class="text-sm smmax:pt-1 smmax:inline-block ml-12">
+                    @admin
                     <a href="{{ route('courses') }}" class="btn-white">
                         Курсы
                     </a>
                     <a href="{{ route('users') }}" class="btn-white mx-2">
                         Пользователи
                     </a>
+                    @endadmin
                 </div>
             @endif
             @if (Auth::check())
                 <div class="flex smmax:pt-3">
                     @if(Auth::user()->is_admin)
                     <label class="label inline-block m-2 text-black"> Админ
-                        <input <?= $_COOKIE['is_admin']) && $_COOKIE['is_admin'] ? 'checked' : ''?> @click="admin" type="checkbox">
+                        <input @admin checked @endadmin @click="admin" type="checkbox">
                     </label>
                     @endif
                     <form method="POST" action="{{ route('logout') }}">

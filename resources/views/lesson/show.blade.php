@@ -12,7 +12,7 @@
             {{ $lesson->name }}
         </div>
         <div class="panel">
-            @if (isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'])
+            @admin
                 <div class="panel-header flex justify-end">
                     <div class="w-32 m-1">
                         <a class="btn" href="{{route('lessons.edit', ['lesson' => $lesson])}}">
@@ -21,7 +21,7 @@
                             <i class="fa fa-trash" aria-hidden="true"></i></a>
                     </div>
                 </div>
-            @endif
+            @endadmin
             <div class="p-3">
                 {!! preg_replace('~(?:https?://)?(?:www.)?(?:youtube.com|youtu.be)/(?:watch\?v=)?([^\s^<]+)~',
                  "<youtube v-bind:id=\"'$1'\"></youtube>", $lesson->content) !!}
