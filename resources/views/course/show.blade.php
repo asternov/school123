@@ -6,6 +6,7 @@
             {{ $course->name }}
         </div>
         @foreach($course->lessons as $model)
+            @if($model->is_public || isset($_COOKIE['is_admin']) && $_COOKIE['is_admin'])
             <div class="panel">
                 <div class="panel-header flex">
                     <div class="w-full m-1">
@@ -14,6 +15,9 @@
                     </div>
 
                     @admin
+                    @if(!$model->is_public)
+                        <i class="fa fa-eye-slash mt-2" aria-hidden="true"></i>
+                    @endif
                         <div class="w-32 m-1">
                             <a class="btn" href="{{route('lessons.edit', ['lesson' => $model])}}"><i class="fa fa-edit"
                                                                                                      aria-hidden="true"></i></a>
@@ -29,6 +33,7 @@
                 </div>
                     @endif
             </div>
+            @endif
         @endforeach
 
     @admin

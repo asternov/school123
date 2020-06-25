@@ -13,6 +13,7 @@
         {{ Form::email('email', null, ['class' => 'input']) }}
         {{ Form::label('password', 'Пароль', ['class' => 'label']) }}
         {{ Form::password('password', ['class' => 'input']) }}
+        {{ Form::text('remember', 'true', ['class' => 'hidden']) }}
         <div class="flex justify-center m-2">
             {{ Form::submit('Войти', ['class' => 'btn']) }}
         </div>

@@ -39,9 +39,6 @@ Route::group(['prefix' => 'courses', 'middleware' => 'auth', 'as' => 'courses'],
     Route::post('update/{course}', 'CourseController@update')->name('.update');
     Route::get('destroy/{course}', 'CourseController@destroy')->name('.destroy');
     Route::get('{course}', 'CourseController@show')->name('.show');
-
-
-
     Route::get('', 'CourseController@index');
 });
 
@@ -53,4 +50,15 @@ Route::group(['prefix' => 'lessons', 'middleware' => 'auth', 'as' => 'lessons'],
     Route::get('destroy/{lesson}', 'LessonController@destroy')->name('.destroy');
     Route::get('{lesson}', 'LessonController@show')->name('.show');
     Route::get('', 'LessonController@index');
+});
+
+
+Route::group(['prefix' => 'comments', 'middleware' => 'auth', 'as' => 'comments'], function () {
+    Route::get('edit/{lesson}', 'CommentController@edit')->name('.edit');
+    Route::get('create/{course}', 'CommentController@create')->name('.create');
+    Route::post('store/{lesson}', 'CommentController@store')->name('.store');
+    Route::post('update/{lesson}', 'CommentController@update')->name('.update');
+    Route::get('destroy/{lesson}', 'CommentController@destroy')->name('.destroy');
+    Route::get('{lesson}', 'CommentController@show')->name('.show');
+    Route::get('', 'CommentController@index');
 });

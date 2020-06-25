@@ -18,9 +18,29 @@ Breadcrumbs::for('course', function ($trail, $course) {
     $trail->push($course->name, route('courses.show', $course));
 });
 
+Breadcrumbs::for('course.edit', function ($trail, $course) {
+    $trail->parent('course', $course);
+    $trail->push('редактирование', route('courses', $course));
+});
+
+Breadcrumbs::for('course.create', function ($trail) {
+    $trail->parent('course');
+    $trail->push('Создание', route('users'));
+});
+
 Breadcrumbs::for('lesson', function ($trail, $lesson) {
     $trail->parent('course', $lesson->course);
     $trail->push($lesson->name, route('lessons.show', $lesson));
+});
+
+Breadcrumbs::for('lesson.edit', function ($trail, $lesson) {
+    $trail->parent('lesson', $lesson);
+    $trail->push('редактирование', route('lessons', $lesson));
+});
+
+Breadcrumbs::for('lesson.create', function ($trail) {
+    $trail->parent('lesson');
+    $trail->push('Создание', route('users'));
 });
 
 Breadcrumbs::for('users', function ($trail) {

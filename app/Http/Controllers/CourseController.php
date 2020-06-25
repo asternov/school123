@@ -40,13 +40,15 @@ class CourseController extends Controller
             'name' => 'required',
             'description' => '',
             'users' => '',
+            'is_public' => '',
         ]);
 
         $course = new Course;
         $course->name = $validatedData['name'];
         $course->description = $validatedData['description'];
-        $course->users()->attach($validatedData['users']);
+        $course->is_public = isset($validatedData['is_public']);
         $course->save();
+        $course->users()->attach($validatedData['users']);
 
         return redirect('courses');
     }
@@ -56,11 +58,13 @@ class CourseController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => '',
-            'users' => '',
+            'users' => 'required',
+            'is_public' => '',
         ]);
 
         $course->name = $validatedData['name'];
         $course->description = $validatedData['description'];
+        $course->is_public = isset($validatedData['is_public']);
         $course->save();
         $course->users()->detach();
         $course->users()->attach($validatedData['users']);

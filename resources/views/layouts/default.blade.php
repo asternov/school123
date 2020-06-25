@@ -54,7 +54,7 @@
                     </form>
                 </div>
             @else
-                <div class="flex" v-else>
+                <div class="flex">
                     <a href="/auth/forgot_password" class="btn-white mx-2 hidden">
                         Forgot password
                     </a>

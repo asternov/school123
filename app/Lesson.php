@@ -10,4 +10,10 @@ class Lesson extends Model
     {
         return $this->belongsTo('App\Course');
     }
+
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment')->orderBy('id', 'desc');;
+    }
 }

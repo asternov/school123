@@ -2,10 +2,10 @@
 
 @section('content')
     @if ($create)
-        {{ Breadcrumbs::render('course', $course) }}
+        {{ Breadcrumbs::render('lesson.create') }}
     @else
-        {{ Breadcrumbs::render('lesson', $model) }}
-        @endif
+        {{ Breadcrumbs::render('lesson.edit', $model) }}
+    @endif
 
     <div class=" sm:flex sm:justify-center h-screen p-2 pt-4" id="vue">
         {{ Form::model($model, ['route' => $route, 'method' => 'post']) }}
@@ -19,7 +19,7 @@
         <tinymce v-bind:editor-data="content" v-on:update="content = $event"></tinymce>
         <br>
         {{ Form::label('is_public', 'Опубликован', ['class' => 'label inline-block']) }}
-        {{ Form::checkbox('is_public', ($model->is_public ? $model->is_public : true)) }}
+        {{ Form::checkbox('is_public', true, $create ? true : $model->is_public) }}
         <div class="flex justify-center m-2">
         {{ Form::submit(($create ? 'Создать' : 'Обновить'), ['class' => 'text-3xl lg:text-xl block px-4 btn']) }}
         </div>

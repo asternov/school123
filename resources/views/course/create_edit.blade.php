@@ -1,6 +1,12 @@
 @extends('layouts.default')
 
 @section('content')
+    @if ($create)
+        {{ Breadcrumbs::render('course.create') }}
+    @else
+        {{ Breadcrumbs::render('course.edit', $model) }}
+    @endif
+
     <div class=" flex justify-center h-screen pt-4" id="vue">
         {{ Form::model($model, ['route' => $route, 'method' => 'post']) }}
         {{ Form::label('name', 'Название', ['class' => 'label'])}}
@@ -9,12 +15,12 @@
         {{ Form::text('description', null, ['class' => 'input']) }}
         <br>
         {{ Form::label('is_public', 'Опубликован', ['class' => 'label inline-block']) }}
-        {{ Form::checkbox('is_public', ($model->is_public ? $model->is_public : true)) }}
+        {{ Form::checkbox('is_public', true, $create ? true : $model->is_public) }}
 
         {{ Form::label('', 'Список участников:', ['class' => 'label']) }}
         @foreach(\App\User::all() as $user)
             <label class="label inline-block mx-2"> {{ $user->name }}
-                {{ Form::checkbox('users[]', $user->id, $model->users->contains($user))}}
+                {{ Form::checkbox('users[]', $user->id, $create ? $user->id==Auth::user()->id : $model->users->contains($user))}}
             </label>
         @endforeach
 

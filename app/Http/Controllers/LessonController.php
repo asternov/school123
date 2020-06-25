@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Course;
 use App\Lesson;
 use Illuminate\Http\Request;
@@ -42,16 +43,18 @@ class LessonController extends Controller
             'description' => '',
             'content' => '',
             'course_id' => '',
+            'is_public' => '',
         ]);
 
         $model = new Lesson;
-        $model->setAttribute('name',  $validatedData['name']);
-        $model->setAttribute('description',  $validatedData['description']);
-        $model->setAttribute('content',  $validatedData['content']);
-        $model->setAttribute('course_id',  $validatedData['course_id']);
+        $model->name = $validatedData['name'];
+        $model->description = $validatedData['description'];
+        $model->content = $validatedData['content'];
+        $model->course_id = $validatedData['course_id'];
+        $model->is_public = isset($validatedData['is_public']);
         $model->save();
 
-        return redirect('courses/' . $model->course_id);
+        return redirect('lessons/' . $model->id);
     }
 
     public function update(Request $request, Lesson $lesson)
@@ -60,14 +63,16 @@ class LessonController extends Controller
             'name' => 'required',
             'description' => '',
             'content' => '',
+            'is_public' => '',
         ]);
 
-        $lesson->setAttribute('name',  $validatedData['name']);
-        $lesson->setAttribute('description',  $validatedData['description']);
-        $lesson->setAttribute('content',  $validatedData['content']);
+        $lesson->name = $validatedData['name'];
+        $lesson->description = $validatedData['description'];
+        $lesson->content = $validatedData['content'];
+        $lesson->is_public = isset($validatedData['is_public']);
         $lesson->save();
 
-        return redirect('courses/' . $lesson->course->id);
+        return redirect('lessons/' . $lesson->id);
     }
 
     public function destroy(Lesson $lesson)
