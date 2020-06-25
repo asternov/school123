@@ -2,7 +2,7 @@
 
 @section('content')
     @if ($create)
-        {{ Breadcrumbs::render('lesson.create') }}
+        {{ Breadcrumbs::render('lesson.create', $course) }}
     @else
         {{ Breadcrumbs::render('lesson.edit', $model) }}
     @endif

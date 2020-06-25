@@ -24,7 +24,7 @@ Breadcrumbs::for('course.edit', function ($trail, $course) {
 });
 
 Breadcrumbs::for('course.create', function ($trail) {
-    $trail->parent('course');
+    $trail->parent('courses');
     $trail->push('Создание', route('users'));
 });
 
@@ -38,9 +38,9 @@ Breadcrumbs::for('lesson.edit', function ($trail, $lesson) {
     $trail->push('редактирование', route('lessons', $lesson));
 });
 
-Breadcrumbs::for('lesson.create', function ($trail) {
-    $trail->parent('lesson');
-    $trail->push('Создание', route('users'));
+Breadcrumbs::for('lesson.create', function ($trail, $course) {
+    $trail->parent('course', $course);
+    $trail->push('Создание урока', route('courses'));
 });
 
 Breadcrumbs::for('users', function ($trail) {
