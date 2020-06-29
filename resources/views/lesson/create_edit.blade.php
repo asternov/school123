@@ -34,7 +34,11 @@
                 <fa icon="trash"></fa>
             </button>
         </div>
-
+@if ($create)
+    <div>
+        добавить вложения можно только к созданному уроку
+    </div>
+        @else
         <file-upload
             ref="upload"
             v-model="files"
@@ -49,7 +53,7 @@
         <button class="btn m-2" type="button" v-on:click="send()" ref="send">
             <fa icon="arrow-up"></fa>
         </button>
-
+@endif
         <ul>
             <li v-for="(file, index) in files" :key="file.id" :class="file.thumb ? '' : 'my-3'">
                 <span></span>
