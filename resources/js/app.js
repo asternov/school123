@@ -9,7 +9,13 @@ import Vue from 'vue';
 import QuickEdit from 'vue-quick-edit';
 import tinymce from './components/tinymce.vue';
 import youtube from './components/youtube.vue';
+import fa from './components/fa.vue';
+import Clipboard from 'v-clipboard'
+import VueUploadComponent from 'vue-upload-component'
+import Notifications from 'vue-notification'
+
 window.Vue = require('vue');
+const axios = require('axios').default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,8 +30,11 @@ window.Vue = require('vue');
 
 Vue.component('tinymce', tinymce);
 Vue.component('youtube', youtube);
-
+Vue.component('fa', fa);
+Vue.component('file-upload', VueUploadComponent)
 Vue.component('quick-edit', QuickEdit);
+Vue.use(Clipboard)
+Vue.use(Notifications)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

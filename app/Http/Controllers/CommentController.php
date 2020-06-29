@@ -38,12 +38,16 @@ class CommentController extends Controller
     {
         $validatedData = $request->validate([
             'text' => 'required',
+            'parent_id' => '',
         ]);
 
         $model = new Comment;
         $model->text = $validatedData['text'];
         $model->lesson_id = $lesson->id;
         $model->user_id = auth()->user()->id;
+        if (isset($validatedData['parent_id'])) {
+            $model->parent_id = $validatedData['parent_id'];
+        }
         $model->save();
 
         return redirect('lessons/' . $lesson->id);

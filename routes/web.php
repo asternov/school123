@@ -62,3 +62,26 @@ Route::group(['prefix' => 'comments', 'middleware' => 'auth', 'as' => 'comments'
     Route::get('{lesson}', 'CommentController@show')->name('.show');
     Route::get('', 'CommentController@index');
 });
+
+Route::group(['prefix' => 'attachments', 'middleware' => 'auth', 'as' => 'attachments'], function () {
+    Route::post('store/{lesson}', 'AttachmentController@store')->name('.store');
+    Route::get('show/{lesson}', 'AttachmentController@show')->name('.show');
+    Route::get('delete/{attachment}', 'AttachmentController@destroy')->name('.delete');
+});
+
+Route::get('storage/attachments/{filename}', function ($filename)
+{
+    $path = storage_path('app/public/attachments/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});

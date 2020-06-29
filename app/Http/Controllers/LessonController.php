@@ -54,6 +54,13 @@ class LessonController extends Controller
         $model->is_public = isset($validatedData['is_public']);
         $model->save();
 
+
+        if ($model->is_public) {
+            foreach ($model->course->users as $student) {
+                $model->notifyNewLesson($student);
+            }
+        }
+
         return redirect('lessons/' . $model->id);
     }
 

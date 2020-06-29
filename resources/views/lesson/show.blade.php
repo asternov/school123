@@ -23,7 +23,7 @@
             </div>
             @endadmin
             <div class="p-3">
-                {!! preg_replace('~(?:https?://)?(?:www.)?(?:youtube.com|youtu.be)/(?:watch\?v=)?([^\s^<]+)~',
+                {!! preg_replace('~<a[^>]*>(?:https?://)?(?:www.)?(?:youtube.com|youtu.be)/(?:watch\?v=)?([^\s^<]+)</a>~',
                  "<youtube v-bind:id=\"'$1'\"></youtube>", $lesson->content) !!}
             </div>
         </div>
@@ -42,24 +42,23 @@
                 </div>
             @endif
             {{ Form::model(new App\Comment,
-['route' => ['comments.store', $lesson], 'method' => 'post', 'class' => 'flex justify-center mr-2', 'ref' => "form"]) }}
+['route' => ['comments.store', $lesson], 'method' => 'post', 'class' => ' m-2', 'ref' => "form"]) }}
+            <label v-if="parent_id">
+                <input disabled v-model="parent_id" name="parent_id" class="hidden">
+                ответ на комментарий #<span>@{{ parent_id }}</span>
+                <span @click="parent_id = null" class="href"> отменить</span>
+            </label>
+            <div class="md:flex justify-center">
             {{ Form::textarea('text', null,
 ['class' => 'border shadow rounded p-2 m-2 w-full', 'placeholder' => 'write a message...', 'rows' => '3',
 '@keydown.enter.exact.prevent', '@keyup.enter.exact' => 'submit']) }}
             {{ Form::submit(('отправить'), ['class' => 'text-3xl lg:text-xl px-4 btn h-12 my-auto']) }}
+            </div>
             {{ Form::close() }}
 
-            @foreach($lesson->comments as $comment)
-                <div class="m-2  ">
-                    <div class="flex justify-between">
-                    <div>{{ $comment->user->name }}:</div>
-                    <div>{{ $comment->created_at }}</div>
-                    </div>
-                    <div class="bg-gray-300 rounded p-2">
-                        {!! str_replace("\n", '<br>', $comment->text) !!}
-                    </div>
-                </div>
-            @endforeach
+            <div class="m-2">
+            @include('partials.replies', ['comments' => $lesson->comments, 'level' => 0])
+            </div>
         </div>
     </div>
 
@@ -68,7 +67,9 @@
             var app = new Vue({
                 el: '#vue',
                 data() {
-                    return {};
+                    return {
+                        parent_id: null,
+                    };
                 },
                 methods: {
                     submit : function(){

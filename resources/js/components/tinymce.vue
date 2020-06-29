@@ -6,17 +6,18 @@
             :init="{
          height: 500,
          plugins: [
-           'advlist lists link image charmap print preview anchor',
+           'advlist autolink lists link image charmap print preview anchor',
            'searchreplace visualblocks code fullscreen',
            'insertdatetime media table paste code help wordcount '
          ],
+         images_upload_url: 'postAcceptor.php',
          toolbar:
            'undo redo | formatselect | bold italic backcolor | \
            alignleft aligncenter alignright alignjustify | \
            bullist numlist outdent indent  | removeformat | help',
            mobile: {
                 menubar: true,
-                plugins: [ 'autosave image media', 'lists', ],
+                plugins: [ 'autosave image media autolink', 'lists', ],
                 toolbar: [ 'undo styleselect' ]
             }
        }"
