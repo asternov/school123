@@ -23,7 +23,7 @@ class Lesson extends Model
     }
 
     public function notifyNewLesson (User $student) {
-        $subject = 'Новый урок открыт в курсе' . $this->course->name;
+        $subject = 'Новый урок открыт в курсе ' . $this->course->name;
         $text = 'на платфоме MakeMeBeauty School в курсе ' . $this->course->name . ' открылся новый урок ' . $this->name
             . "\n открыть урок " . route('lessons.show', $this);
 
