@@ -44,7 +44,7 @@
             {{ Form::model(new App\Comment,
 ['route' => ['comments.store', $lesson], 'method' => 'post', 'class' => ' m-2', 'ref' => "form"]) }}
             <label v-if="parent_id">
-                <input disabled v-model="parent_id" name="parent_id" class="hidden">
+                <input v-model="parent_id" name="parent_id" class="hidden">
                 ответ на комментарий #<span>@{{ parent_id }}</span>
                 <span @click="parent_id = null" class="href"> отменить</span>
             </label>
