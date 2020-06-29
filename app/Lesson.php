@@ -27,18 +27,18 @@ class Lesson extends Model
         $text = 'на платфоме MakeMeBeauty School в курсе ' . $this->course->name . ' открылся новый урок ' . $this->name
             . "\n открыть урок " . route('lessons.show', $this);
 
-        $this->sendEmail($this->email, $subject, $text);
+        $this->sendEmail($student->email, $subject, $text);
     }
 
     public function sendEmail ($to, $subject, $text) {
 
         $domain = 'asternov.ru';
-        $mg = Mailgun::create(env('MAILGUN_API_KEY'), 'https://api.eu.mailgun.net/v3/' . $domain);
-//        $mg->messages()->send('mg.'.$domain, [
-//            'from' => 'MakeMeBeauty School <hello@' . $domain . '>',
-//            'to' => $to,
-//            'subject' => $subject,
-//            'text' => $text,
-//        ]);
+        $mg = Mailgun::create(env('MAILGUN_API_KEY'), 'https://api.mailgun.net/v3/' . $domain);
+        $mg->messages()->send(''.$domain, [
+            'from' => 'MakeMeBeauty School <hello@' . $domain . '>',
+            'to' => $to,
+            'subject' => $subject,
+            'text' => $text,
+        ]);
     }
 }
