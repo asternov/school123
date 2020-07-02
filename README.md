@@ -4,16 +4,29 @@
 - создание/измениение/удаление курсов
 - создание/измениение/удаление уроков в курсе
 
+
+
 ## спецификации
 
 хлебные крошки для удобной навигации
--https://github.com/asternov/school/blob/master/routes/breadcrumbs.php
+- https://github.com/asternov/school/blob/master/routes/breadcrumbs.php
 
+компонент vue js для удобной вставки видео с youtube
+- https://github.com/asternov/school/blob/master/resources/js/components/youtube.vue
+
+в качестве радактора текста используется tinymce
+- https://github.com/asternov/school/blob/master/resources/js/components/tinymce.vue
+
+вложения к урокам
+https://github.com/asternov/school/blob/master/app/Http/Controllers/AttachmentController.php
+
+рекурсивные комментарии
+https://github.com/asternov/school/blob/master/resources/views/partials/replies.blade.php
 
 ## Установка на серевер
 
 - Клонируем репозиторий
-- `git clone https://github.com/asternov/events.git`
+- `git clone https://github.com/asternov/school.git`
 - `cd events`
 - Устанавливаем зависимости
 - `composer install`
