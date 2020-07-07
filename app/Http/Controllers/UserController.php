@@ -51,10 +51,10 @@ class UserController extends Controller
         ]);
 
         $userModel = new User;
-        $userModel->setAttribute('email',  $validatedData['email']);
-        $userModel->setAttribute('name',  $validatedData['name']);
-        $userModel->setAttribute('password',  Hash::make($validatedData['password']));
-        $userModel->setAttribute('is_admin',  isset($validatedData['is_admin']));
+        $userModel->email = $validatedData['email'];
+        $userModel->name = $validatedData['name'];
+        $userModel->password = Hash::make($validatedData['password']);
+        $userModel->is_admin = isset($validatedData['is_admin']);
         $userModel->save();
         return redirect('users');
     }
@@ -69,11 +69,11 @@ class UserController extends Controller
         ]);
 
         $userModel = User::query()->find($id);
-        $userModel->setAttribute('email',  $validatedData['email']);
-        $userModel->setAttribute('name',  $validatedData['name']);
+        $userModel->email = $validatedData['email'];
+        $userModel->name = $validatedData['name'];
         if (isset($validatedData['password']))
-            $userModel->setAttribute('password',  Hash::make($validatedData['password']));
-        $userModel->setAttribute('is_admin',  isset($validatedData['is_admin']));
+            $userModel->password = Hash::make($validatedData['password']);
+        $userModel->is_admin = isset($validatedData['is_admin']);
         $userModel->save();
         return redirect('users');
     }

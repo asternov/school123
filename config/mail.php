@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'mailgun'),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,6 +51,7 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
+            'from' => ['address' => 'hello@asternov.ru', 'name' => 'PhpGrad'],
         ],
 
         'postmark' => [

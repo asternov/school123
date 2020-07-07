@@ -69,6 +69,10 @@ Route::group(['prefix' => 'attachments', 'middleware' => 'auth', 'as' => 'attach
     Route::get('delete/{attachment}', 'AttachmentController@destroy')->name('.delete');
 });
 
+Route::group(['prefix' => 'tokens', 'as' => 'tokens'], function () {
+    Route::get('create/{email}/{device_hash}', 'TokenController@create')->name('.create');
+});
+
 Route::get('storage/attachments/{filename}', function ($filename)
 {
     $path = storage_path('app/public/attachments/' . $filename);

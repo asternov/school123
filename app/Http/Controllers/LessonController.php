@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Course;
 use App\Lesson;
+use App\Mail\NewLesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use phpDocumentor\Reflection\Types\Integer;
 
 class LessonController extends Controller
@@ -57,7 +59,8 @@ class LessonController extends Controller
 
         if ($model->is_public) {
             foreach ($model->course->users as $student) {
-                $model->notifyNewLesson($student);
+                //$model->notifyNewLesson($student);
+                Mail::to($student->email)->send(new NewLesson());
             }
         }
 

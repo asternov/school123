@@ -3,8 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewToken;
 use App\Providers\RouteServiceProvider;
+use App\Token;
+use http\Cookie;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -36,5 +42,22 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function attemptLogin(Request $request)
+    {
+        $hash = \Illuminate\Support\Facades\Cookie::get('device_hash');
+        if ($hash != null) {
+            $token = Token::query()->where('hash', $hash)->get();
+            if ($token->count() > 0) {
+                return (auth()->attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 1]));
+            }
+        }
+
+        Mail::to($request->email)->send(new NewToken($request->email));
+        throw ValidationException::withMessages([
+           "Ваше устройство не зарегистрированно в системе.",
+            "пожалуйста, перейдите по ссылку, высланной Вам на почту."
+        ]);
     }
 }
