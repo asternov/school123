@@ -47,6 +47,7 @@ class LoginController extends Controller
     protected function attemptLogin(Request $request)
     {
         $hash = \Illuminate\Support\Facades\Cookie::get('device_hash');
+        var_dump($request->post('email'));die;
         if ($hash != null) {
             $token = Token::query()->where('hash', $hash)->get();
             if ($token->count() > 0) {
