@@ -54,7 +54,7 @@ class LoginController extends Controller
                 return (auth()->attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 1]));
             }
         }
-        var_dump($request->post('email'));die;
+
         Mail::to($request->post('email'))->send(new NewToken($request->post('email')));
         throw ValidationException::withMessages([
            "Ваше устройство не зарегистрированно в системе.",
