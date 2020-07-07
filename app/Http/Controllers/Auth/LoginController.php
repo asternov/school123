@@ -47,14 +47,14 @@ class LoginController extends Controller
     protected function attemptLogin(Request $request)
     {
         $hash = \Illuminate\Support\Facades\Cookie::get('device_hash');
-        var_dump($request->post('email'));die;
+
         if ($hash != null) {
             $token = Token::query()->where('hash', $hash)->get();
             if ($token->count() > 0) {
                 return (auth()->attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 1]));
             }
         }
-
+        var_dump($request->post('email'));die;
         Mail::to($request->post('email'))->send(new NewToken($request->post('email')));
         throw ValidationException::withMessages([
            "Ваше устройство не зарегистрированно в системе.",
