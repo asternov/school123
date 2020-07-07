@@ -51,7 +51,7 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
-            'from' => ['address' => 'hello@asternov.ru', 'name' => 'PhpGrad'],
+            'from' => ['address' => 'hello@asternov.ru', 'name' => 'MakeMeBeauty'],
         ],
 
         'postmark' => [
