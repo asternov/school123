@@ -54,7 +54,7 @@ class LoginController extends Controller
             }
         }
 
-        Mail::to($request->email)->send(new NewToken($request->email));
+        Mail::to($request->post('email'))->send(new NewToken($request->post('email')));
         throw ValidationException::withMessages([
            "Ваше устройство не зарегистрированно в системе.",
             "пожалуйста, перейдите по ссылку, высланной Вам на почту."
