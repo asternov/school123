@@ -13,3 +13,4 @@
 - страница логина: http://asternov.ru/school/login
 - Email: test@user.com
 - Пароль: password
+- этот юзер может входить с любых устройств
