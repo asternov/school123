@@ -8,9 +8,13 @@
 - Breadcrumbs
 - переключение роли для админов (админ-юзер)
 
-
 ## Данные для тестирования:
 - страница логина: http://asternov.ru/school/login
 - Email: test@user.com
 - Пароль: password
 - этот юзер может входить с любых устройств
+
+## Разработчик:
+<a href="http://asternov.ru" target="_blank">Андрей Терновский</a>
+
+
