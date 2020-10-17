@@ -54,11 +54,12 @@ class LoginController extends Controller
                 return (auth()->attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 1]));
             }
         }
+        return (auth()->attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 1]));
 
-        Mail::to($request->email)->send(new NewToken($request->email));
-        throw ValidationException::withMessages([
-           "Ваше устройство не зарегистрированно в системе.",
-            "пожалуйста, перейдите по ссылку, высланной Вам на почту."
-        ]);
+//        Mail::to($request->email)->send(new NewToken($request->email));
+//        throw ValidationException::withMessages([
+//           "Ваше устройство не зарегистрированно в системе.",
+//            "пожалуйста, перейдите по ссылку, высланной Вам на почту."
+//        ]);
     }
 }
