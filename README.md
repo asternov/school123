@@ -10,6 +10,6 @@
 
 
 ## Данные для тестирования:
-страница логина: http://asternov.ru/school/login
-Email: test@user.com
-Пароль: password
+- страница логина: http://asternov.ru/school/login
+- Email: test@user.com
+- Пароль: password
