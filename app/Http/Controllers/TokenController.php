@@ -32,7 +32,7 @@ class TokenController extends Controller
         $response = redirect('/login');
 
         if (isset($user) && in_array($device_hash, $device_hashs)) {
-            if ($user->tokens->count() > 1) {
+            if ($user->tokens->count() > 2) {
                 $user->tokens->last()->delete();
             }
             $response->withCookie('device_hash', $device_hash, 100000);
