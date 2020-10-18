@@ -6,7 +6,7 @@
                 Видеокомната
             </div>
 
-            <button class="btn" autocomplete="off" id="start_call"  @click="startAudio">
+            <button class="btn" autocomplete="off" id="start_call"  @click="startCall">
                 Начать видеозвонок
             </button>
 
@@ -65,6 +65,9 @@
                     $('#start_call').remove();
                     startVideo()
                 },
+                startCall: function () {
+                    startAudio();
+                },
                 startVideo: function () {
                     if (!window.videoRoomApp.is_started) {
                         if (!this.devMode) {
@@ -91,9 +94,8 @@
                 },
             },
             mounted: function () {
-                window.audioBridgeApp = this;
                 if (!this.devMode) {
-                    //startAudio();
+                window.audioBridgeApp = this;
                 }
             }
         });
