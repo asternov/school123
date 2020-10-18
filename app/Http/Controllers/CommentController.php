@@ -13,7 +13,9 @@ class CommentController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = auth()->user()->id;
-        $lesson->comments()->create($data);
+        $data['lesson_id'] = $lesson->id;
+        $comment = new Comment($data);
+        $comment->save();
         return redirect('lessons/' . $lesson->id);
     }
 }
