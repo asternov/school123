@@ -2,7 +2,7 @@ const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss')
 /*
  |--------------------------------------------------------------------------
- | Mix Asset Management
+ | Mix Asset  Management
  |--------------------------------------------------------------------------
  |
  | Mix provides a clean, fluent API for defining some Webpack build steps

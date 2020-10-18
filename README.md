@@ -9,9 +9,11 @@
 - переключение роли для админов (админ-юзер)
 - Видеокомната https://asternov.ru/school/lessons/1
 - редактор контента уроков TinyMCE
+- документация по RESTfull api в swagger http://asternov.ru/school/docs/#/
+- email уведомления о новых уроках (Mailgun интеграция)
 
 ## Данные для тестирования:
-- страница логина: https://asternov.ru/school/login
+- страница входа: https://asternov.ru/school/login
 - Email: test@user.com
 - Пароль: password
 - этот юзер может входить с любых устройств
