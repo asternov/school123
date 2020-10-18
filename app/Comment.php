@@ -8,9 +8,9 @@ use Illuminate\Support\Carbon;
 class Comment extends Model
 {
     protected $fillable = [
-        'text' => 'required',
-        'parent_id' => '',
-        'user_id' => '',
+        'text',
+        'parent_id',
+        'user_id',
     ];
 
     public function lesson()
