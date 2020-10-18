@@ -20,6 +20,7 @@
                 </button>
             </div>
 
+            <div class="hidden" id="control-buttons">
             <button class="btn hide " autocomplete="off" id="toggleaudio">
                     <span id="volume-mute-icon" v-if="audioenabled">
                       <font-awesome-icon icon="volume-mute"></font-awesome-icon></span>
@@ -33,6 +34,7 @@
                 <span id="video-slash-icon" v-else>
                       <font-awesome-icon icon="video-slash"></font-awesome-icon></span>
             </button>
+            </div>
         </div>
         <div class="panel-body">
             <ul id="list" class="list-group">
@@ -66,6 +68,7 @@
                     startVideo()
                 },
                 startCall: function () {
+                    $('#control-buttons').removeClass('hidden');
                     startAudio();
                 },
                 startVideo: function () {
