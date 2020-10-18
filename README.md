@@ -8,6 +8,7 @@
 - Breadcrumbs
 - переключение роли для админов (админ-юзер)
 - Видеокомната https://asternov.ru/school/lessons/1
+- редактор контента уроков TinyMCE
 
 ## Данные для тестирования:
 - страница логина: https://asternov.ru/school/login
