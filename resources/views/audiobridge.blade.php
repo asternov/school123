@@ -2,6 +2,9 @@
     <div class="col-md-6">
         <div class="panel text-center">
 
+            <div class="my-2 text-center text-xl">
+                Видеокомната
+            </div>
             <div class="hidden">
                 <button class="btn hide " autocomplete="off" id="phone-icon">
                     <font-awesome-icon icon="phone"></font-awesome-icon>
@@ -84,7 +87,7 @@
             mounted: function () {
                 window.audioBridgeApp = this;
                 if (!this.devMode) {
-                    startAudio();
+                    //startAudio();
                 }
             }
         });
