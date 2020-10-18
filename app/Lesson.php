@@ -7,6 +7,14 @@ use Mailgun\Mailgun;
 
 class Lesson extends Model
 {
+    protected $fillable = [
+        'name',
+        'description',
+        'content',
+        'course_id',
+        'is_public',
+    ];
+
     public function course()
     {
         return $this->belongsTo('App\Course');

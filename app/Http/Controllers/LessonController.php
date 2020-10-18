@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Course;
+use App\Http\Requests\LessonRequest;
 use App\Lesson;
 use App\Mail\NewLesson;
 use Illuminate\Http\Request;
@@ -38,28 +39,13 @@ class LessonController extends Controller
         return view('lesson.create_edit')->with(compact('model', 'route', 'create'), ['user'=> Auth::user()]);
     }
 
-    public function store(Request $request)
+    public function store(LessonRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'description' => '',
-            'content' => '',
-            'course_id' => '',
-            'is_public' => '',
-        ]);
-
-        $model = new Lesson;
-        $model->name = $validatedData['name'];
-        $model->description = $validatedData['description'];
-        $model->content = $validatedData['content'];
-        $model->course_id = $validatedData['course_id'];
-        $model->is_public = isset($validatedData['is_public']);
+        $model = new Lesson($request->validated());
         $model->save();
-
 
         if ($model->is_public) {
             foreach ($model->course->users as $student) {
-                //$model->notifyNewLesson($student);
                 Mail::to($student->email)->send(new NewLesson());
             }
         }
@@ -67,20 +53,9 @@ class LessonController extends Controller
         return redirect('lessons/' . $model->id);
     }
 
-    public function update(Request $request, Lesson $lesson)
+    public function update(LessonRequest $request, Lesson $lesson)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'description' => '',
-            'content' => '',
-            'is_public' => '',
-        ]);
-
-        $lesson->name = $validatedData['name'];
-        $lesson->description = $validatedData['description'];
-        $lesson->content = $validatedData['content'];
-        $lesson->is_public = isset($validatedData['is_public']);
-        $lesson->save();
+        $lesson->update($request->validated());
 
         return redirect('lessons/' . $lesson->id);
     }

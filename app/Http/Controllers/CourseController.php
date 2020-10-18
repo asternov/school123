@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Http\Requests\CourseRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -34,40 +35,20 @@ class CourseController extends Controller
         return view('course.create_edit')->with(compact('model', 'route', 'create'), ['user'=> Auth::user()]);
     }
 
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'description' => '',
-            'users' => '',
-            'is_public' => '',
-        ]);
-
-        $course = new Course;
-        $course->name = $validatedData['name'];
-        $course->description = $validatedData['description'];
-        $course->is_public = isset($validatedData['is_public']);
+        $course = new Course($request->validated());
         $course->save();
-        $course->users()->attach($validatedData['users']);
+        $course->users()->attach($request->post('users'));
 
         return redirect('courses');
     }
 
-    public function update(Request $request, Course $course)
+    public function update(CourseRequest $request, Course $course)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'description' => '',
-            'users' => 'required',
-            'is_public' => '',
-        ]);
-
-        $course->name = $validatedData['name'];
-        $course->description = $validatedData['description'];
-        $course->is_public = isset($validatedData['is_public']);
-        $course->save();
+        $course->update($request->validated());
         $course->users()->detach();
-        $course->users()->attach($validatedData['users']);
+        $course->users()->attach($request->post('users'));
 
         return redirect('courses');
     }

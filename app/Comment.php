@@ -7,6 +7,11 @@ use Illuminate\Support\Carbon;
 
 class Comment extends Model
 {
+    protected $fillable = [
+        'text' => 'required',
+        'parent_id' => '',
+    ];
+
     public function lesson()
     {
         return $this->belongsTo('App\Lesson');

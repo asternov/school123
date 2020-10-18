@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'courses', 'middleware' => 'auth', 'as' => 'courses'], function () {
+Route::get('{course}', 'CourseController@show')->name('api.courses.show');
+Route::get('', 'CourseController@index');
+});
+
+Route::group(['prefix' => 'lessons', 'middleware' => 'auth', 'as' => 'lessons'], function () {
+Route::get('{lesson}', 'LessonController@show')->name('api.lessons.show');
+Route::get('', 'LessonController@index');
+});
