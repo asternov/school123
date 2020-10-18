@@ -3,7 +3,13 @@
 @section('content')
     {{ Breadcrumbs::render('lesson', $lesson) }}
 
-    @include('videoroom')
+    <div class="mx-auto container">
+        @include('audiobridge')
+    </div>
+    <div class="mx-auto container">
+        @include('videoroom')
+    </div>
+
     <style>
         iframe .html5-endscreen {
             display: none;
