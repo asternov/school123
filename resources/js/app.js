@@ -13,6 +13,7 @@ import fa from './components/fa.vue';
 import Clipboard from 'v-clipboard'
 import VueUploadComponent from 'vue-upload-component'
 import Notifications from 'vue-notification'
+import VueSimpleAlert from "vue-simple-alert";
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
