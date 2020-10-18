@@ -46,6 +46,7 @@ class UserController extends Controller
     {
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
+        $data['is_admin'] = isset($data['is_admin']);
 
         $userModel = new User($data);
         $userModel->save();
@@ -58,6 +59,8 @@ class UserController extends Controller
 
         if (isset($data['password']))
         $data['password'] = Hash::make($data['password']);
+
+        $data['is_admin'] = isset($data['is_admin']);
 
         $userModel = User::query()->find($id);
         $userModel->update($data);
