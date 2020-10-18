@@ -9,6 +9,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon"/>
 
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/janus/adapter.min.js') }}" defer></script>
+    <script src="{{ asset('js/janus/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('js/janus/janus.js') }}" defer></script>
+    <script src="{{ asset('js/janus/audiobridge.js') }}" defer></script>
+    <script src="{{ asset('js/janus/videoroom.js') }}" defer></script>
 </head>
 
 <body class="background-color">

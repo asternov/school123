@@ -2,6 +2,8 @@
 
 @section('content')
     {{ Breadcrumbs::render('lesson', $lesson) }}
+
+    @include('videoroom')
     <style>
         iframe .html5-endscreen {
             display: none;
