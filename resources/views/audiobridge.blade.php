@@ -87,7 +87,7 @@
             mounted: function () {
                 window.audioBridgeApp = this;
                 if (!this.devMode) {
-                    //startAudio();
+                    startAudio();
                 }
             }
         });
