@@ -6,7 +6,7 @@
                 Видеокомната
             </div>
 
-            <button class="btn" autocomplete="off" id="start_call"  @click="startCall">
+            <button class="btn my-2" autocomplete="off" id="start_call"  @click="startCall">
                 Начать видеозвонок
             </button>
 
