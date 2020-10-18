@@ -73,8 +73,8 @@ Route::group(['prefix' => 'tokens', 'as' => 'tokens'], function () {
     Route::get('create/{email}/{device_hash}', 'TokenController@create')->name('.create');
 });
 
-Route::get('swagger-file', 'DevTools\DocsController@file')->name('swagger-file');
-Route::get('docs', 'DevTools\DocsController@docsForm')->name('swagger-form');
+Route::get('swagger-file', 'DocsController@file')->name('swagger-file');
+Route::get('docs', 'DocsController@docsForm')->name('swagger-form');
 
 Route::get('storage/attachments/{filename}', function ($filename)
 {
