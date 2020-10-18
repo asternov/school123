@@ -18,7 +18,7 @@ class DocsController extends Controller
      */
     public function file() : string
     {
-        return file_get_contents(base_path('/docs/swagger.yaml'));
+        return file_get_contents(base_path('docs/swagger.yaml'));
     }
 
     /**
