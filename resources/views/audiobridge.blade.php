@@ -64,11 +64,11 @@
             },
             methods: {
                 afterAudioStart() {
-                    $('#start_call').remove();
                     startVideo()
                 },
                 startCall: function () {
                     $('#control-buttons').removeClass('hidden');
+                    $('#start_call').remove();
                     startAudio();
                 },
                 startVideo: function () {
