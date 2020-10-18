@@ -5,6 +5,11 @@
             <div class="my-2 text-center text-xl">
                 Видеокомната
             </div>
+
+            <button class="btn" autocomplete="off" id="start_call"  @click="startAudio">
+                Начать видеозвонок
+            </button>
+
             <div class="hidden">
                 <button class="btn hide " autocomplete="off" id="phone-icon">
                     <font-awesome-icon icon="phone"></font-awesome-icon>
@@ -57,6 +62,7 @@
             },
             methods: {
                 afterAudioStart() {
+                    $('#start_call').remove();
                     startVideo()
                 },
                 startVideo: function () {
@@ -87,7 +93,7 @@
             mounted: function () {
                 window.audioBridgeApp = this;
                 if (!this.devMode) {
-                    startAudio();
+                    //startAudio();
                 }
             }
         });
