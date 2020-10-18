@@ -11,6 +11,7 @@
 - редактор контента уроков TinyMCE
 - документация по RESTfull api в swagger http://asternov.ru/school/docs/#/
 - email уведомления о новых уроках (Mailgun интеграция)
+- система вложенных коментариев
 
 ## Данные для тестирования:
 - страница входа: https://asternov.ru/school/login
