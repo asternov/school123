@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'CourseController@index')->name('/');
 Route::get('', 'CourseController@index')->name('/');
+Route::get('webhook', 'CourseController@webhook')->name('/');
 
 Auth::routes();
 

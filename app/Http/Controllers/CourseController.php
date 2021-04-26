@@ -15,6 +15,17 @@ class CourseController extends Controller
         return view('course.index', compact('models'));
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function webhook(Request $request)
+    {
+        info('RelogController updateStatuses', [$request->all()]);
+
+        return var_export($request->all());
+    }
+
     public function show(Request $request, Course $course) {
         return view('course.show', compact('course'));
     }
